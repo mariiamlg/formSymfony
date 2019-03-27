@@ -1,0 +1,9 @@
+mcm_client_form:
+    path:     /client/form
+    defaults: { _controller: MCMClientBundle:Client:form }
+    methods: GET
+
+mcm_client_query:
+    path:     /client/form
+    defaults: { _controller: MCMClientBundle:Client:query }
+    methods: POST

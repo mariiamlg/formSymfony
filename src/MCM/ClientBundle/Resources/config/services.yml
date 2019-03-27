@@ -1,0 +1,4 @@
+services:
+#    mcm_client.example:
+#        class: MCM\ClientBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

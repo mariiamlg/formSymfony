@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Título{% endblock %}</title>
+        {% block stylesheets %}
+        <!-- Latest compiled and minified CSS -->
+            <link rel="stylesheet" href="{{ asset('public/css/bootstrap.min.css') }}" />
+            <link rel="stylesheet" href="{{ asset('public/css/bootstrap-grid.min.css') }}" />
+            <link rel="stylesheet" href="{{ asset('public/css/style.css') }}" />
+            <link rel="stylesheet" href="{{ asset('public/css/freelancer.min.css') }}" />
+
+            <!-- Custom Fonts -->
+            <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+            <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+            <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+      {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+        {% block body %}
+        {% endblock %}
+        {% block javascripts %}
+            <script src="{{asset('public/js/jquery-3.2.0.min.js')}}"></script>
+            <script src="{{asset('public/js/bootstrap.min.js')}}"></script>
+            <script>
+                 {% if modal is defined and modal == true %}
+                    $("#modalEdit").modal('show');
+                {% endif %}
+            </script>
+        {% endblock %}
+</html>

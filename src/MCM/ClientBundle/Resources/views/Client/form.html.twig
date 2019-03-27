@@ -1,0 +1,120 @@
+{# src/MCM/ClientBundle/Resources/views/Client/form.html.twig #}
+{% extends '::layout.html.twig' %} 
+{% block body %}
+	<div class="main container">
+		<div class="row well">
+			<div class="col-lg-10">
+				<div class="page-header">
+					<h2>New client</h2>
+                    {% if app.session.flashBag.has('success') %}
+                        <div class="alert alert-success">
+                            {% for msg in app.session.flashBag.get('success') %}
+                                {{ msg }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+				</div>
+                {{ form_start(form, {'attr' : {'role' : 'form'} }) }}
+                <div class="row">
+                    <div class="form-group col-lg-12">
+                        {{ form_label(form.fullName) }}
+                        {{ form_widget(form.fullName, {'attr' : {'class' : 'form-control'} }) }}
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        {{ form_label(form.email) }}
+                        {{ form_widget(form.email, {'attr' : {'class' : 'form-control'} }) }}
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-6">
+                        {{ form_label(form.idCard) }}
+                        {{ form_widget(form.idCard, {'attr' : {'class' : 'form-control'} }) }}
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        {{ form_label(form.typeCachtment) }}
+                        {{ form_widget(form.typeCachtment, {'attr' : {'class' : 'form-control', 'placeholder' : 'Select a type'} }) }}
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        {{ form_label(form.subscribed) }}
+                        {{ form_widget(form.subscribed) }}
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        {{ form_label(form.address) }}
+                        {{ form_widget(form.address, {'attr' : {'class' : 'form-control'} }) }}
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-6">
+                        {{ form_label(form.zipCode) }}
+                        {{ form_widget(form.zipCode, {'attr' : {'class' : 'form-control'} }) }}
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        {{ form_label(form.state) }}
+                        {{ form_widget(form.state, {'attr' : {'class' : 'form-control'} }) }}
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4">
+                        {{ form_label(form.city) }}
+                        {{ form_widget(form.city, {'attr' : {'class' : 'form-control'} }) }}
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4">
+                        {{ form_label(form.country) }}
+                        {{ form_widget(form.country, {'attr' : {'class' : 'form-control'} }) }}
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                     <div class="form-group col-lg-12">
+                        {{ form_label(form.comments) }}
+                        {{ form_widget(form.comments, {'attr' : {'class' : 'form-control'} }) }}
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+			</div>
+		</div>
+	</div>
+
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit"style="display:none;"></button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            Client already exists.
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onclick="window.location.href='{{ path('mcm_client_form') }}';">Clear form</button>
+            <button type="button" class="btn btn-primary" onclick="window.location.href='{{ path('mcm_client_form', {'id': 5}) }}';">Edit client</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}
+
+
+   

@@ -1,0 +1,3 @@
+mcm_client:
+    resource: "@MCMClientBundle/Resources/config/routing.yml"
+    prefix:   /
