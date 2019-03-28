@@ -16,9 +16,16 @@ class ClientType extends AbstractType
     {
         $builder
             ->add('id','hidden')
-            ->add('fullName')
-            ->add('email')
-            ->add('idCard')
+            ->add('fullName', null, array(
+                'label' => 'Full name*'
+            ))
+            ->add('email', null, array(
+                'label' => 'Email*'
+            ))
+            ->add('idCard', null, array(
+                'label' => 'Id Card*',
+                'attr' => ['pattern' => '^([0-9XYZ][0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKE])|([0-9]{8,8}[A-Za-z])$/i']
+            ))
             ->add('subscribed', null, array(
                 'required' => false,
              ))

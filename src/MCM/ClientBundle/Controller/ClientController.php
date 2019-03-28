@@ -47,7 +47,7 @@ class ClientController extends Controller
                 $exists = $this->exists($client);
 
                 if(!$exists) {
-                    $this->create($client);
+                    $this->create($request, $client);
                 } else {
                     $modal = true;
                 }          
@@ -73,7 +73,7 @@ class ClientController extends Controller
     }
 
     /*Inserta un nuevo cliente*/
-    private function create($client) {
+    private function create(Request $request, $client) {
         $em = $this->getDoctrine()->getManager();
         $em->persist($client);
         $em->flush();
