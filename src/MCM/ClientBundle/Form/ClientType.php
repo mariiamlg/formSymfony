@@ -20,7 +20,8 @@ class ClientType extends AbstractType
                 'label' => 'Full name*'
             ))
             ->add('email', null, array(
-                'label' => 'Email*'
+                'label' => 'Email*',
+                'attr' => ['pattern' => '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$']
             ))
             ->add('idCard', null, array(
                 'label' => 'Id Card*',
