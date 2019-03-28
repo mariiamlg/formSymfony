@@ -108,7 +108,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" onclick="window.location.href='{{ path('mcm_client_form') }}';">Clear form</button>
-            <button type="button" class="btn btn-primary" onclick="window.location.href='{{ path('mcm_client_form', {'id': 5}) }}';">Edit client</button>
+            <button type="button" class="btn btn-primary" onclick="window.location.href='{{ path('mcm_client_query', {'id': id|default('')}) }}';">Edit client</button>
         </div>
         </div>
     </div>
